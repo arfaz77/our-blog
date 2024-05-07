@@ -1,19 +1,21 @@
 import { BrowserRouter,Route,Routes } from "react-router-dom"
 import Home from "./pages/Home"
-// import About from "./pages/about"
+
 import Signup from "./pages/Signup"
 import Signin from "./pages/Signin"
 import Dashboaed from "./pages/Dashboaed"
-
+import Header from "./components/Header"
+import { About } from "./pages/about"
 export default function Main() {
   return (
     <BrowserRouter>
+    <Header/>
         <Routes>
             <Route path="/" element={<Home/>}/>
-            {/* <Route path="/About" element={<About/>}/> */}
-            <Route path="/Sign-in" element={<Signin/>}/>
-            <Route path="/Sign-up" element={<Signup/>}/>
-            <Route path="/Dashboard" element={<Dashboaed/>}/>
+            <Route path="/sign-in" element={<Signin/>}/>
+            <Route path="/sign-up" element={<Signup/>}/>
+            <Route path="/about" element={<About/>}/>
+            <Route path="/dashboard" element={<Dashboaed/>}/>
         </Routes>
     </BrowserRouter>
   )

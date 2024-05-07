@@ -1,6 +1,6 @@
 
 
-export default function About() {
+export const About = () => {
   return (
     <div>about</div>
   )
