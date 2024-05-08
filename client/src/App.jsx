@@ -6,6 +6,8 @@ import Signin from "./pages/Signin"
 import Dashboaed from "./pages/Dashboaed"
 import Header from "./components/Header"
 import { About } from "./pages/about"
+import FooterComp from "./components/Footer"
+
 export default function Main() {
   return (
     <BrowserRouter>
@@ -17,6 +19,7 @@ export default function Main() {
             <Route path="/about" element={<About/>}/>
             <Route path="/dashboard" element={<Dashboaed/>}/>
         </Routes>
+        <FooterComp/>
     </BrowserRouter>
   )
 }
