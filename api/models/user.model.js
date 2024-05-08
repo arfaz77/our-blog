@@ -1,17 +1,17 @@
 import mongoose from "mongoose";
-const useSChema = new  mongoose.Schema({
+const userSchema = new  mongoose.Schema({
     username:{
-        type:string,
+        type:String,
         required:true,
         unique:true,
     },
     email:{
-        type:string,
+        type:String,
         required:true,
         unique:true,
     },
     password:{
-        type:string,
+        type:String,
         required:true,
         
     }
