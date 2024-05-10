@@ -7,7 +7,7 @@ import {signInStart,signInSuccess,signInFailure} from "../redux/user/userSlice"
 
 export default function Signin() {
   const [formData, setFormData] = useState({});
-  const {loading,error:errorMessage}=useSelector(state=>state.user);
+  const {loading,error: errorMessage}=useSelector((state)=>state.user);
   const dispatch =useDispatch();
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -16,7 +16,7 @@ export default function Signin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if ( !formData.email || !formData.password) {
-      dispatch(signInFailure("fill out all fields"))
+      return dispatch(signInFailure("fill out all fields"))
     }
     try {
       dispatch(signInStart());
@@ -31,7 +31,7 @@ export default function Signin() {
        dispatch(signInFailure(data.message))
       }
       if(res.ok) {
-        dispatch(signInSuccess)
+        dispatch(signInSuccess(data))
         navigate('/');
       }
     } catch (error) {
@@ -59,7 +59,7 @@ export default function Signin() {
           <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
             
             <div>
-              <Label value='Your email' />
+              <Label value='Your email' foe/>
               <TextInput
                 type='email'
                 placeholder='name@company.com'
@@ -87,7 +87,7 @@ export default function Signin() {
                   <span className='pl-3'>Loading...</span>
                 </>
               ) : (
-                'Sign Up'
+                'Sign in'
               )}
             </Button>
             {/* <OAuth /> */}
